@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TweetFinder</title>
+	<link rel="stylesheet" href="static/css/demo.css" type="text/css" /> 
+
+</head>
+<body>
+	<img src="static/twitterlogo.png" width="1000" height="800">
+	<div id="twitterSearchApp">
+		<div id="mainColumn">
+			<div id="searchbar">
+				 
+				<div id="create-search">
+					<h1>Tweet Finder</h1>
+					<div id="searchform">
+						<input id="search-query" type="text" />
+						<button id="submit-search">Search</button>
+						<img class="loading-icon" src="static/img/spinner.gif" alt="loading" />
+					</div>
+				</div>
+			</div>
+			<div id="container">
+				<div id="monitor">
+					<div id="twitter-feed"></div>
+				</div>
+
+			</div>
+			
+		</div>
+	</div>
+	
+    <script src="static/lib/jquery.js"></script>
+    <script src="static/lib/underscore.js"></script>
+    <script src="static/lib/backbone.js"></script>
+    <script src="static/lib/mustache.js"></script>
+    <script src="static/app.js"></script>
+    
+    
+    
+    <script type="text/javascript">
+	(function ($) {
+		// Create our models
+		var query = new TwitterSearch();
+		
+		// Add views
+		var createSearchView = new CreateSearchView({
+			el: $("#create-search"),
+			model: query
+		});
+		
+		var tweetList = new TweetListView({
+			el: $("#twitter-feed"),
+			collection: query.displayedTweets
+		});
+		tweetList.render();
+	})(jQuery);
+    </script>
+</body>
+</html>

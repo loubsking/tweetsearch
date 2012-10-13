@@ -21,10 +21,21 @@
 				</div>
 			</div>
 			<div id="container">
-				<div id="monitor">
-					<div id="twitter-feed"></div>
-				</div>
-
+				<table width='100%'>
+				<td>
+				<tr>
+					<div class="span 2">
+						<ul class="nav nav-list">
+						  <li class="active"><a href="#">History</a></li>
+						</ul>
+					</div>
+				</tr>
+				<tr>
+					<div id="monitor">
+						<div id="twitter-feed"></div>
+					</div>
+				</tr>
+			</table>
 			</div>
 			
 		</div>
@@ -35,7 +46,16 @@
     <script src="static/lib/backbone.js"></script>
     <script src="static/lib/mustache.js"></script>
     <script src="static/app.js"></script>
-    
+    <script type="text/javascript">
+			var onClickSearchHandler = function() {
+			var searchVal =  $("#search-query").val();
+				$('ul').append("<li><a href="+"#"+">"+searchVal+"</li>");
+				 };
+				 
+			$("#submit-search").click(onClickSearchHandler);
+			
+			
+			</script>
     
     
     <script type="text/javascript">
